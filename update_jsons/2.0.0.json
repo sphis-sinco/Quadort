@@ -1,0 +1,15 @@
+{
+	"additions": [
+		{
+			"line": "Added \"allowAviations\" gamerule",
+			"elaboration": "Controls any and all functions related to aviation",
+
+			"beta_version": 1
+		},
+		{
+			"line": "Added \"DEATH_COUNT\" variable",
+
+			"beta_version": 1
+		}
+	]
+}
