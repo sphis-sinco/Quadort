@@ -17,37 +17,49 @@ export function readUpdateJson(json_name, path_prefix) {
 }
 
 function parseUpdateJson(text) {
-    var update_json = JSON.parse(text);
-    console.log('update_json');
-
     var group = document.createElement("div");
+    document.body.appendChild(group);
 
-    for (const key in update_json) {
-        var category = update_json[key];
-        console.log(`\t${key}`);
+    var update_json = undefined;
+    try {
+        update_json = JSON.parse(text);
+    } catch(e) {}
 
-        var category_header = document.createElement("h2");
-        category_header.innerHTML = key.toUpperCase();
-        group.appendChild(category_header);
+    if (update_json == undefined || update_json == null) {
 
-        var category_group = document.createElement("ul");
-        group.appendChild(category_group);
+        var shit = document.createElement("p");
+        shit.innerHTML = "N/A";
+        group.appendChild(shit);
+    } else {
 
-        for (const field in category) {
-            console.info('\t\t' + field, category[field]);
+        console.log('update_json');
 
-            var field_dot = document.createElement("li");
 
-            var line = document.createElement("p");
-            line.innerHTML = category[field].line;
-            field_dot.appendChild(line);
+        for (const key in update_json) {
+            var category = update_json[key];
+            console.log(`\t${key}`);
 
-            if (category[field].elaboration != undefined)
-                line.innerHTML += " : " + category[field].elaboration;
+            var category_header = document.createElement("h2");
+            category_header.innerHTML = key.toUpperCase();
+            group.appendChild(category_header);
 
-            category_group.appendChild(field_dot);
+            var category_group = document.createElement("ul");
+            group.appendChild(category_group);
+
+            for (const field in category) {
+                console.info('\t\t' + field, category[field]);
+
+                var field_dot = document.createElement("li");
+
+                var line = document.createElement("p");
+                line.innerHTML = category[field].line;
+                field_dot.appendChild(line);
+
+                if (category[field].elaboration != undefined)
+                    line.innerHTML += " : " + category[field].elaboration;
+
+                category_group.appendChild(field_dot);
+            }
         }
     }
-
-    document.body.appendChild(group);
 }
