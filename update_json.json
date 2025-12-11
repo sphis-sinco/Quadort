@@ -1,0 +1,12 @@
+{
+  "homepage": "https://gamebanana.com/mods/download/638638",
+  "1.21.8": {
+    "1.0.0": "The Alien Update",
+    "1.1.0": "Aviation block and structure + Fixed tungsten block alt recipe",
+    "2.0.0": ""
+  },
+  "promos": {
+    "1.21.8-latest": "2.0.0",
+    "1.21.8-recommended": "2.0.0"
+  }
+}
