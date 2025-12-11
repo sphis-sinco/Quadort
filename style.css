@@ -16,3 +16,9 @@ a {
 a:visited {
   color: #2382a8;
 }
+
+version {
+  font-family: monospace;
+  
+  color: #747474;
+}
